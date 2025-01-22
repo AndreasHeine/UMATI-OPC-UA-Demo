@@ -1,0 +1,11 @@
+services:
+  opcua-server:
+    image: ghcr.io/andreasheine/sampleserver-node-opcua:main
+    ports:
+      - 4840:4840
+  opcua-client:
+    image: nodered/node-red
+    ports:
+      - 1880:1880
+    volumes:
+      - ./opcua-client/:/data:rw
