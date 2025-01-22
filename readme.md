@@ -14,7 +14,7 @@
 
 make sure to check the Username and Password Auth in the OPC UA Client Settings
 
-Username: admin  
-Password: pw1  
+Username: `admin`  
+Password: `pw1`  
 
 You need the Username and Password in order to Execute Methods!!!
