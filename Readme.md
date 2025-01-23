@@ -19,6 +19,6 @@ make sure to check the Username and Password Auth in the OPC UA Client Settings
 Username: `admin`  
 Password: `pw1`  
 
-![image](./screenshots/opc ua client password 2.PNG)
+![image](./screenshots/opc%20ua%20client%20password%202.PNG)
 
 You need the Username and Password in order to Execute Methods!!!
