@@ -7,7 +7,7 @@
 ## Start
 
 1. open commandline promt and navigate to the UmatiDemo-Folder where the docker-compose.yaml file is located!
-2. type: `docker compose up` or `docker compose up -d`
+2. type: `docker compose up --build` or `docker compose up -d --build`
 3. now the two docker containers should spin up
 4. open your browser and copy the url `127.0.0.1:1880` and hit enter
 5. now your in node-red and can access the demo
