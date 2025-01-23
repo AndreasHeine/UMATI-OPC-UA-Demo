@@ -1,6 +1,6 @@
 [
     {
-        "id": "5ef02f5a1bae60e7",
+        "id": "a343f2d8cad12d79",
         "type": "tab",
         "label": "Extract MachineData",
         "disabled": false,
@@ -19,6 +19,14 @@
         "id": "9fb52b3c96cd3954",
         "type": "tab",
         "label": "Job Management Demo",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f89f7b3bf2d4f082",
+        "type": "tab",
+        "label": "JobManagement Dashboard",
         "disabled": false,
         "info": "",
         "env": []
@@ -90,96 +98,317 @@
         ]
     },
     {
-        "id": "7ca1b81425b3845b",
-        "type": "inject",
-        "z": "5ef02f5a1bae60e7",
-        "name": "",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 170,
-        "y": 140,
-        "wires": [
-            [
-                "0a7b11fc342833a2"
-            ]
-        ]
+        "id": "bdf28c31022dc704",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://opcua-server:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "none": false,
+        "login": true,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
     },
     {
-        "id": "cb9f4f49e5019502",
+        "id": "918e78662789214f",
+        "type": "ui_tab",
+        "name": "OPC 40001-3: Machinery Job Mgmt [opc.tcp://opcua-server:4840]",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "79c78ae2116548f2",
+        "type": "ui_group",
+        "name": "JobOrderList",
+        "tab": "918e78662789214f",
+        "order": 1,
+        "disp": true,
+        "width": "20",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4be06e34014f6250",
+        "type": "ui_group",
+        "name": "JobOrderReceiver",
+        "tab": "918e78662789214f",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "36261b9a964f98de",
+        "type": "ui_group",
+        "name": "JobResponseProvider",
+        "tab": "918e78662789214f",
+        "order": 3,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f682012f2ba4d9b9",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD.MM.YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "ab14f174549e1345",
         "type": "debug",
-        "z": "5ef02f5a1bae60e7",
+        "z": "a343f2d8cad12d79",
         "name": "debug 1",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
-        "y": 180,
+        "x": 720,
+        "y": 140,
         "wires": []
     },
     {
-        "id": "0a7b11fc342833a2",
+        "id": "2fa2a43f565b3d24",
         "type": "OpcUa-Client2-Explore",
-        "z": "5ef02f5a1bae60e7",
+        "z": "a343f2d8cad12d79",
+        "inputs": 1,
+        "output": 4,
+        "name": "Explore MyControledMachine",
+        "endpoint": "c366cbab7839c8d7",
+        "nodeId": "nsu=http://MyControledMachine-Namespace/UA;s=MyControledMachine",
+        "outputType": "Value",
+        "excludeEmpty": true,
+        "followOrganizes": true,
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "ab14f174549e1345"
+            ]
+        ]
+    },
+    {
+        "id": "bba54beb44849a7f",
+        "type": "inject",
+        "z": "a343f2d8cad12d79",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "2fa2a43f565b3d24"
+            ]
+        ]
+    },
+    {
+        "id": "e40f59a574b00cd1",
+        "type": "OpcUa-Client2-Explore",
+        "z": "a343f2d8cad12d79",
         "inputs": 1,
         "output": 4,
         "name": "Explore MyMachine",
         "endpoint": "c366cbab7839c8d7",
         "nodeId": "nsu=http://mynewmachinenamespace/UA;s=MyMachine",
         "outputType": "Value",
-        "excludeEmpty": false,
+        "excludeEmpty": true,
         "followOrganizes": true,
-        "x": 370,
-        "y": 140,
+        "x": 350,
+        "y": 180,
         "wires": [
             [
-                "cb9f4f49e5019502"
+                "ab14f174549e1345"
             ]
         ]
     },
     {
-        "id": "51c3389f460a47f6",
+        "id": "b29399b18fe788c2",
         "type": "inject",
-        "z": "5ef02f5a1bae60e7",
+        "z": "a343f2d8cad12d79",
         "name": "",
-        "props": [],
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 170,
-        "y": 220,
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 180,
         "wires": [
             [
-                "79c36ba50d6aaa6f"
+                "e40f59a574b00cd1"
             ]
         ]
     },
     {
-        "id": "79c36ba50d6aaa6f",
+        "id": "31b1fb30c85b468b",
         "type": "OpcUa-Client2-Explore",
-        "z": "5ef02f5a1bae60e7",
+        "z": "a343f2d8cad12d79",
         "inputs": 1,
         "output": 4,
-        "name": "Explore Machines Folder",
+        "name": "Explore All Machine-Instances on the Server",
         "endpoint": "c366cbab7839c8d7",
         "nodeId": "nsu=http://opcfoundation.org/UA/Machinery/;i=1001",
         "outputType": "Value",
-        "excludeEmpty": false,
+        "excludeEmpty": true,
         "followOrganizes": true,
-        "x": 390,
-        "y": 220,
+        "x": 420,
+        "y": 260,
         "wires": [
             [
-                "cb9f4f49e5019502"
+                "ab14f174549e1345"
+            ]
+        ]
+    },
+    {
+        "id": "7711de0c5ee1df9e",
+        "type": "inject",
+        "z": "a343f2d8cad12d79",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 260,
+        "wires": [
+            [
+                "31b1fb30c85b468b"
             ]
         ]
     },
@@ -259,6 +488,200 @@
                 "ea7cb3fd13acdde9"
             ]
         ]
+    },
+    {
+        "id": "580adc7870418399",
+        "type": "OpcUa-Client2-Explore",
+        "z": "f3b7518bc9a33586",
+        "inputs": 1,
+        "output": 4,
+        "name": "All Machine-Instances on the Server",
+        "endpoint": "c366cbab7839c8d7",
+        "nodeId": "nsu=http://opcfoundation.org/UA/Machinery/;i=1001",
+        "outputType": "NodeId",
+        "excludeEmpty": true,
+        "followOrganizes": true,
+        "x": 410,
+        "y": 320,
+        "wires": [
+            [
+                "96b51af6106b12b7"
+            ]
+        ]
+    },
+    {
+        "id": "7d6ec1e87a4f5981",
+        "type": "inject",
+        "z": "f3b7518bc9a33586",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "580adc7870418399"
+            ]
+        ]
+    },
+    {
+        "id": "96b51af6106b12b7",
+        "type": "OpcUa-Client2-Monitor",
+        "z": "f3b7518bc9a33586",
+        "inputs": 1,
+        "output": 2,
+        "name": "",
+        "endpoint": "c366cbab7839c8d7",
+        "subscription": "s1",
+        "startImmediately": false,
+        "nodeId": "",
+        "samplingInterval": "2",
+        "discardOldest": true,
+        "queueSize": 10,
+        "x": 430,
+        "y": 420,
+        "wires": [
+            [
+                "af8d7c605018c752"
+            ]
+        ]
+    },
+    {
+        "id": "af8d7c605018c752",
+        "type": "function",
+        "z": "f3b7518bc9a33586",
+        "name": "JavaScript Voodoo!",
+        "func": "const instances = Array.from(Object.entries(msg.payload))\nconst msgs = instances.map((instance) => {\n    const name = instance[0]\n    const data = instance[1]\n    const msg = {}\n    msg.topic = `Enterprise/Site/Area/Line/${name}`\n    msg.payload = data\n    return msg\n})\nreturn [msgs]",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 420,
+        "wires": [
+            [
+                "ded581511e678c0e",
+                "cb2c3f9cb3c7718d"
+            ]
+        ]
+    },
+    {
+        "id": "4b0fd84ffc44aeb3",
+        "type": "mqtt out",
+        "z": "f3b7518bc9a33586",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "",
+        "x": 980,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "ded581511e678c0e",
+        "type": "json",
+        "z": "f3b7518bc9a33586",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 840,
+        "y": 420,
+        "wires": [
+            [
+                "4b0fd84ffc44aeb3",
+                "fd096e3a496732bb"
+            ]
+        ]
+    },
+    {
+        "id": "2ab62e281a8d0bd3",
+        "type": "catch",
+        "z": "f3b7518bc9a33586",
+        "name": "",
+        "scope": [
+            "ded581511e678c0e"
+        ],
+        "uncaught": false,
+        "x": 840,
+        "y": 360,
+        "wires": [
+            [
+                "0193c19134f9475a"
+            ]
+        ]
+    },
+    {
+        "id": "0193c19134f9475a",
+        "type": "debug",
+        "z": "f3b7518bc9a33586",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "19f2af32378da431",
+        "type": "comment",
+        "z": "f3b7518bc9a33586",
+        "name": "FIXME: BIGINT ERROR!",
+        "info": "",
+        "x": 900,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "cb2c3f9cb3c7718d",
+        "type": "debug",
+        "z": "f3b7518bc9a33586",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "fd096e3a496732bb",
+        "type": "function",
+        "z": "f3b7518bc9a33586",
+        "name": "Store State in Flow-Context",
+        "func": "flow.set(msg.topic, msg.payload)",
+        "outputs": 0,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 480,
+        "wires": []
     },
     {
         "id": "d629e5502bdcd2ea",
@@ -486,6 +909,1103 @@
         "wires": [
             [
                 "649f1d1d466945b4"
+            ]
+        ]
+    },
+    {
+        "id": "a365c9945934d1b0",
+        "type": "OpcUa-Client",
+        "z": "f89f7b3bf2d4f082",
+        "endpoint": "bdf28c31022dc704",
+        "action": "subscribe",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "2",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "setstatusandtime": true,
+        "keepsessionalive": true,
+        "name": "JobManagement-Client",
+        "x": 890,
+        "y": 120,
+        "wires": [
+            [
+                "6151fa30a31ba703",
+                "3ca84b0fec0d1fcd",
+                "7b70946bdc623125",
+                "6405dd8b3a0fcab3",
+                "d05ba806a5c77bfb"
+            ],
+            [
+                "3f2bdfa8f74dddca"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6151fa30a31ba703",
+        "type": "debug",
+        "z": "f89f7b3bf2d4f082",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1150,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "d12879973d769354",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "JobManager-JobOrderControl-StoreAndStart",
+        "func": "const NamespaceArray = flow.get(\"NamespaceArray\") || undefined\nif (NamespaceArray === undefined) return\n\nconst ISA95JobContorlIndex = NamespaceArray.indexOf(\"http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/\")\nif (ISA95JobContorlIndex === -1) return\n\nmsg.action = \"method\"\nmsg.topic  = flow.get(\"JobControlObjectNodeId\")\nmsg.objectId = flow.get(\"JobControlObjectNodeId\")\nmsg.methodId = flow.get(\"StoreAndStartMethodNodeId\")\nmsg.inputArguments = [\n    {\n        \"dataType\": \"ExtensionObject\", \n        \"value\": {\n            \"jobOrderID\": `${msg.payload.ID}`, // only ID is mandaory\n            \"description\": [\n                {\"locale\": \"en-EN\", \"text\": msg.payload.Description || \"---\"}\n            ],\n            \"priority\": msg.payload.Priority || 0,\n            \"startTime\": msg.payload.StartTime || undefined,\n            \"endTime\": msg.payload.EndTime || undefined\n        },\n        \"typeid\": `ns=${ISA95JobContorlIndex};i=3008`\n    },\n    {   \n        \"dataType\": \"LocalizedText\",\n        \"value\": [\n            `${msg.payload.Comment} || \"---\"`\n        ]\n    }\n]\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 620,
+        "wires": [
+            [
+                "a365c9945934d1b0"
+            ]
+        ]
+    },
+    {
+        "id": "72b1daca37a72d16",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "Subscribe ISA95JobOrderStatusEvent",
+        "func": "const NamespaceArray = flow.get(\"NamespaceArray\") || undefined\nif (NamespaceArray === undefined) return\n\nconst ISA95JobContorlIndex = NamespaceArray.indexOf(\"http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/\")\nif (ISA95JobContorlIndex === -1) return\n\nmsg = {}\nmsg.action = \"events\"\nmsg.topic = \"i=2253\"\nmsg.eventTypeIds = `ns=${ISA95JobContorlIndex};i=1006`\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 200,
+        "wires": [
+            [
+                "a365c9945934d1b0"
+            ]
+        ]
+    },
+    {
+        "id": "9e495d4bdcb4e25c",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "read NamespaceArray",
+        "func": "msg.action = \"read\"\nmsg.topic = \"i=2255\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 280,
+        "wires": [
+            [
+                "a365c9945934d1b0"
+            ]
+        ]
+    },
+    {
+        "id": "3ca84b0fec0d1fcd",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "flow.set(\"NamespaceArray\", msg.payload)",
+        "func": "if (msg.topic === \"i=2255\") {\n    flow.set(\"NamespaceArray\", msg.payload)\n    return msg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 140,
+        "wires": [
+            [
+                "6603c51318422358"
+            ]
+        ]
+    },
+    {
+        "id": "3f2bdfa8f74dddca",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "check session active",
+        "func": "if (msg.status === \"session active\") return msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1200,
+        "y": 100,
+        "wires": [
+            [
+                "a1a5a4bd0ba61330"
+            ]
+        ]
+    },
+    {
+        "id": "d13ace1abc6a4867",
+        "type": "comment",
+        "z": "f89f7b3bf2d4f082",
+        "name": "OPC 40001-3: Machinery Job Mgmt",
+        "info": "",
+        "x": 180,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "7b70946bdc623125",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "JobOrderResults",
+        "func": "if (msg.payload.SourceName === \"JobOrderResults\") return msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 420,
+        "wires": [
+            [
+                "0f7d5b13c21c737c"
+            ]
+        ]
+    },
+    {
+        "id": "f38f70385ab5a911",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "Subscribe JobOrderList",
+        "func": "msg = {}\nmsg.action = \"subscribe\"\nmsg.topic = flow.get(\"JobOrderListNodeId\")\nmsg.interval = 500\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "a365c9945934d1b0"
+            ]
+        ]
+    },
+    {
+        "id": "6c7090fc3a14c25c",
+        "type": "ui_table",
+        "z": "f89f7b3bf2d4f082",
+        "group": "79c78ae2116548f2",
+        "name": "",
+        "order": 1,
+        "width": "20",
+        "height": "10",
+        "columns": [
+            {
+                "field": "ID",
+                "title": "ID",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "State",
+                "title": "State",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Priority",
+                "title": "Priority",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Start",
+                "title": "Start",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "End",
+                "title": "End",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 1770,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "6405dd8b3a0fcab3",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "JobOrderList",
+        "func": "if (msg.topic === flow.get(\"JobOrderListNodeId\")) {\n    const newMsg = {}\n    newMsg.topic = msg.topic\n    newMsg.payload = msg.payload\n    return newMsg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 320,
+        "wires": [
+            [
+                "1871bcdcc751b5a8",
+                "c6fa0b3d03f17685"
+            ]
+        ]
+    },
+    {
+        "id": "1871bcdcc751b5a8",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "Format JobOrderList",
+        "func": "const data = msg.payload\n\nmsg = {}\nmsg.payload = data.map((item) => {\n    const id = item.jobOrder[\"jobOrderID\"] || \"---\"\n    const state = item.state[0].stateText.text || \"---\"\n    const prio = item.jobOrder.priority || \"---\"\n    \n    const start = item.jobOrder.startTime || \"---\"\n    const end = item.jobOrder.endTime || \"---\"\n    \n    let startTime, endTime\n    \n    if (start !== \"---\") {\n        startTime = new Date(start).toISOString()\n    }\n    \n        if (end !== \"---\") {\n        endTime = new Date(end).toISOString()\n    }\n    \n    return {\n        \"ID\": `${id}`,\n        \"State\": `${state}`,\n        \"Priority\": `${prio}`,\n        \"Start\": `${startTime}`,\n        \"End\": `${endTime}`\n    }\n})\n\nreturn msg",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1380,
+        "y": 320,
+        "wires": [
+            [
+                "6c7090fc3a14c25c",
+                "d438371baca1017a"
+            ]
+        ]
+    },
+    {
+        "id": "c408f091e4ee1c01",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "JobManager-JobOrderControl-Clear",
+        "func": "const NamespaceArray = flow.get(\"NamespaceArray\") || undefined\nif (NamespaceArray === undefined) return\n\nconst ISA95JobContorlIndex = NamespaceArray.indexOf(\"http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/\")\nif (ISA95JobContorlIndex === -1) return\n\nconst id = msg.payload.ID\nconst comment = msg.payload.Comment\n\nmsg.action = \"method\"\nmsg.topic  = flow.get(\"JobControlObjectNodeId\")\nmsg.objectId = flow.get(\"JobControlObjectNodeId\")\nmsg.methodId = flow.get(\"ClearMethodNodeId\")\nmsg.inputArguments = [\n    {\n        \"dataType\": \"String\", \n        \"value\": `${msg.payload.ID}`\n    },\n    {\n        \"dataType\": \"LocalizedText\", \n        \"value\": [\n            `${msg.payload.Comment} || \"---\"`\n        ]\n    }\n]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 660,
+        "wires": [
+            [
+                "a365c9945934d1b0"
+            ]
+        ]
+    },
+    {
+        "id": "84cbe444b810e48f",
+        "type": "ui_form",
+        "z": "f89f7b3bf2d4f082",
+        "name": "",
+        "label": "StoreAndSart:",
+        "group": "4be06e34014f6250",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "ID",
+                "value": "ID",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Description",
+                "value": "Description",
+                "type": "text",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Priority",
+                "value": "Priority",
+                "type": "number",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Comment",
+                "value": "Comment",
+                "type": "text",
+                "required": false,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "ID": "",
+            "Description": "",
+            "Priority": "",
+            "Comment": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 120,
+        "y": 620,
+        "wires": [
+            [
+                "d12879973d769354"
+            ]
+        ]
+    },
+    {
+        "id": "04a1cf91b8f9918c",
+        "type": "ui_toast",
+        "z": "f89f7b3bf2d4f082",
+        "position": "bottom right",
+        "displayTime": "10",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "JobResult notification",
+        "x": 1720,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "0f7d5b13c21c737c",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "Format JobResult-Notification",
+        "func": "const NamespaceArray = flow.get(\"NamespaceArray\") || undefined\nif (NamespaceArray === undefined) return\n\nconst ISA95JobContorlIndex = NamespaceArray.indexOf(\"http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/\")\nif (ISA95JobContorlIndex === -1) return\n\n\nmsg.topic = \"ISA95JobOrderStatusEvent:\"\nmsg.payload = `JobOrderId='${msg.payload[`${ISA95JobContorlIndex}:JobOrder`].jobOrderID}' JobState='${msg.payload[`${ISA95JobContorlIndex}:JobState`][0].stateText.text}' Start='${new Date(msg.payload[`${ISA95JobContorlIndex}:JobOrder`].startTime).toISOString()}' End='${new Date(msg.payload[`${ISA95JobContorlIndex}:JobOrder`].endTime).toISOString()}'`\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1450,
+        "y": 420,
+        "wires": [
+            [
+                "04a1cf91b8f9918c",
+                "177eb18f8cd197b5"
+            ]
+        ]
+    },
+    {
+        "id": "a2c42adefd36f2ca",
+        "type": "ui_form",
+        "z": "f89f7b3bf2d4f082",
+        "name": "",
+        "label": "Clear:",
+        "group": "4be06e34014f6250",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "ID",
+                "value": "ID",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Comment",
+                "value": "Comment",
+                "type": "text",
+                "required": false,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "ID": "",
+            "Comment": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": true,
+        "className": "",
+        "x": 90,
+        "y": 660,
+        "wires": [
+            [
+                "c408f091e4ee1c01"
+            ]
+        ]
+    },
+    {
+        "id": "c6fa0b3d03f17685",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "Store JobOrderList",
+        "func": "let list = msg.payload\nif (list === null) {\n    list = []\n}\nflow.set(\"JobOrderList\", list)\nreturn {}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1370,
+        "y": 280,
+        "wires": [
+            [
+                "d3904fe00e55e26e"
+            ]
+        ]
+    },
+    {
+        "id": "d3904fe00e55e26e",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "Update JobOrderList",
+        "func": "const data = flow.get(\"JobOrderList\")\n\nmsg = {}\nmsg.payload = data.map((item) => {\n    const id = item.jobOrder[\"jobOrderID\"] || \"---\"\n    const state = item.state[0].stateText.text || \"---\"\n    const prio = item.jobOrder.priority || \"---\"\n    \n    const start = item.jobOrder.startTime || \"---\"\n    const end = item.jobOrder.endTime || \"---\"\n    \n    let startTime, endTime\n    \n    if (start !== \"---\") {\n        startTime = new Date(start).toISOString()\n    }\n    \n        if (end !== \"---\") {\n        endTime = new Date(end).toISOString()\n    }\n    \n    return {\n        \"ID\": `${id}`,\n        \"State\": `${state}`,\n        \"Priority\": `${prio}`,\n        \"Start\": `${startTime}`,\n        \"End\": `${endTime}`\n    }\n})\n\nreturn msg",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1380,
+        "y": 200,
+        "wires": [
+            [
+                "6c7090fc3a14c25c",
+                "d438371baca1017a"
+            ]
+        ]
+    },
+    {
+        "id": "34ddebde54c31e33",
+        "type": "catch",
+        "z": "f89f7b3bf2d4f082",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 100,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "177eb18f8cd197b5",
+        "type": "ui_text",
+        "z": "f89f7b3bf2d4f082",
+        "group": "36261b9a964f98de",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Jobstatus update:",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1710,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "c07446eef9c9edb8",
+        "type": "ui_form",
+        "z": "f89f7b3bf2d4f082",
+        "name": "",
+        "label": "RequestJobResponseByJobOrderID:",
+        "group": "36261b9a964f98de",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "ID",
+                "value": "ID",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "ID": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 190,
+        "y": 760,
+        "wires": [
+            [
+                "d62ed911cd057b0c"
+            ]
+        ]
+    },
+    {
+        "id": "d62ed911cd057b0c",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "JobManager-JobOrderResults-RequestJobResponseByJobOrderID",
+        "func": "msg.action = \"method\"\nmsg.topic  = flow.get(\"JobOrderResultsObjectNodeId\")\nmsg.objectId = flow.get(\"JobOrderResultsObjectNodeId\")\nmsg.methodId = flow.get(\"JobOrderResultsMethodNodeId\")\nmsg.inputArguments = [\n    {\n        \"dataType\": \"String\", \n        \"value\": `${msg.payload.ID}`,\n    }\n]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 760,
+        "wires": [
+            [
+                "a365c9945934d1b0"
+            ]
+        ]
+    },
+    {
+        "id": "d05ba806a5c77bfb",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "RequestJobResponseByJobOrderID",
+        "func": "const id = flow.get(\"JobOrderResultsMethodNodeId\") || undefined\nif (id === undefined) return\nif (msg.methodId === id) return msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 500,
+        "wires": [
+            [
+                "3ee680333cee086f"
+            ]
+        ]
+    },
+    {
+        "id": "a50481b4e219033a",
+        "type": "ui_button",
+        "z": "f89f7b3bf2d4f082",
+        "name": "",
+        "group": "79c78ae2116548f2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1160,
+        "y": 200,
+        "wires": [
+            [
+                "d3904fe00e55e26e",
+                "42de712d20bbf1ed"
+            ]
+        ]
+    },
+    {
+        "id": "f0270b0d562621cd",
+        "type": "ui_text",
+        "z": "f89f7b3bf2d4f082",
+        "group": "79c78ae2116548f2",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "last refresh:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1850,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "d438371baca1017a",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "getTimeString",
+        "func": "msg.payload = new Date().toISOString()\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1660,
+        "y": 200,
+        "wires": [
+            [
+                "f0270b0d562621cd"
+            ]
+        ]
+    },
+    {
+        "id": "507bbc05388b4d0b",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "JobManager-JobOrderControl-Store",
+        "func": "const NamespaceArray = flow.get(\"NamespaceArray\") || undefined\nif (NamespaceArray === undefined) return\n\nconst ISA95JobContorlIndex = NamespaceArray.indexOf(\"http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/\")\nif (ISA95JobContorlIndex === -1) return\n\nmsg.action = \"method\"\nmsg.topic  = flow.get(\"JobControlObjectNodeId\")\nmsg.objectId = flow.get(\"JobControlObjectNodeId\")\nmsg.methodId = flow.get(\"StoreMethodNodeId\")\nmsg.inputArguments = [\n    {\n        \"dataType\": \"ExtensionObject\", \n        \"value\": {\n            \"jobOrderID\": `${msg.payload.ID}`, // only ID is mandaory\n            \"description\": [\n                {\"locale\": \"en-EN\", \"text\": msg.payload.Description || \"---\"}\n            ],\n            \"priority\": msg.payload.Priority || 0,\n            \"startTime\": msg.payload.StartTime || undefined,\n            \"endTime\": msg.payload.EndTime || undefined\n        },\n        \"typeid\": `ns=${ISA95JobContorlIndex};i=3008`\n    },\n    {   \n        \"dataType\": \"LocalizedText\",\n        \"value\": [\n            `${msg.payload.Comment} || \"---\"`\n        ]\n    }\n]\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 580,
+        "wires": [
+            [
+                "a365c9945934d1b0"
+            ]
+        ]
+    },
+    {
+        "id": "8b37d133e52bb27a",
+        "type": "ui_form",
+        "z": "f89f7b3bf2d4f082",
+        "name": "",
+        "label": "Start:",
+        "group": "4be06e34014f6250",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "ID",
+                "value": "ID",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Comment",
+                "value": "Comment",
+                "type": "text",
+                "required": false,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "ID": "",
+            "Comment": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": true,
+        "className": "",
+        "x": 90,
+        "y": 540,
+        "wires": [
+            [
+                "910779120ef314c7"
+            ]
+        ]
+    },
+    {
+        "id": "910779120ef314c7",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "JobManager-JobOrderControl-Start",
+        "func": "const id = msg.payload.ID\nconst comment = msg.payload.Comment\n\nmsg.action = \"method\"\nmsg.topic  = flow.get(\"JobControlObjectNodeId\")\nmsg.objectId = flow.get(\"JobControlObjectNodeId\")\nmsg.methodId = flow.get(\"StartMethodNodeId\")\nmsg.inputArguments = [\n    {\n        \"dataType\": \"String\", \n        \"value\": msg.payload.ID,\n    },\n    {\n        \"dataType\": \"LocalizedText\", \n        \"value\": [\n            `${msg.payload.Comment} || \"---\"`\n        ]\n    }\n]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 540,
+        "wires": [
+            [
+                "a365c9945934d1b0"
+            ]
+        ]
+    },
+    {
+        "id": "01496cc5fb94063c",
+        "type": "ui_form",
+        "z": "f89f7b3bf2d4f082",
+        "name": "",
+        "label": "Store:",
+        "group": "4be06e34014f6250",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "ID",
+                "value": "ID",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Description",
+                "value": "Description",
+                "type": "text",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Priority",
+                "value": "Priority",
+                "type": "number",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Comment",
+                "value": "Comment",
+                "type": "text",
+                "required": false,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "ID": "",
+            "Description": "",
+            "Priority": "",
+            "Comment": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 90,
+        "y": 580,
+        "wires": [
+            [
+                "507bbc05388b4d0b"
+            ]
+        ]
+    },
+    {
+        "id": "3ee680333cee086f",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "Format JobResult-Notification",
+        "func": "const NamespaceArray = flow.get(\"NamespaceArray\") || undefined\nif (NamespaceArray === undefined) return\n\nconst ISA95JobContorlIndex = NamespaceArray.indexOf(\"http://opcfoundation.org/UA/ISA95-JOBCONTROL_V2/\")\nif (ISA95JobContorlIndex === -1) return\n\nnewMsg = {}\nnewMsg.topic = \"RequestJobResponseByJobOrderID:\"\nnewMsg.payload = `JobOrderId='${msg.payload[0].jobOrderID}' JobState='${msg.payload[0].jobState[0].stateText.text}'`\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1570,
+        "y": 520,
+        "wires": [
+            [
+                "edefeae310e8ebf4"
+            ]
+        ]
+    },
+    {
+        "id": "edefeae310e8ebf4",
+        "type": "ui_toast",
+        "z": "f89f7b3bf2d4f082",
+        "position": "top right",
+        "displayTime": "10",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "RequestJobResponseByJobOrderID notification",
+        "x": 1920,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "6603c51318422358",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "Load Configuration",
+        "func": "const NamespaceArray = flow.get(\"NamespaceArray\") || undefined\nif (NamespaceArray === undefined) return\n\nconst machineName = \"MyControledMachine\"\nconst MachineInstanceNamespace = \"http://MyControledMachine-Namespace/UA\"\nconst JobManagerInstanceIdentifier = \"s=MyControledMachine-JobManager\"\nconst instanceIndex = NamespaceArray.indexOf(MachineInstanceNamespace)\nif (instanceIndex === -1) return\nflow.set(\"JobManagerInstanceNodeId\", `ns=${instanceIndex};${JobManagerInstanceIdentifier}`)\n\nconst JobControlObjectNodeId = `ns=${instanceIndex};s=MyControledMachine-JobManager-JobOrderControl`\nflow.set(\"JobControlObjectNodeId\", JobControlObjectNodeId)\nconst StartMethodNodeId = `ns=${instanceIndex};s=MyControledMachine-JobManager-JobOrderControl-Start`\nflow.set(\"StartMethodNodeId\", StartMethodNodeId)\nconst StopMethodNodeId = `ns=${instanceIndex};s=MyControledMachine-JobManager-JobOrderControl-Stop`\nflow.set(\"StopMethodNodeId\", StopMethodNodeId)\nconst ClearMethodNodeId = `ns=${instanceIndex};s=MyControledMachine-JobManager-JobOrderControl-Clear`\nflow.set(\"ClearMethodNodeId\", ClearMethodNodeId)\nconst StoreAndStartMethodNodeId = `ns=${instanceIndex};s=MyControledMachine-JobManager-JobOrderControl-StoreAndStart`\nconst StoreMethodNodeId = `ns=${instanceIndex};s=MyControledMachine-JobManager-JobOrderControl-Store`\nflow.set(\"StoreMethodNodeId\", StoreMethodNodeId)\nflow.set(\"StoreAndStartMethodNodeId\", StoreAndStartMethodNodeId)\nconst JobOrderListNodeId = `ns=${instanceIndex};s=MyControledMachine-JobManager-JobOrderControl-JobOrderList`\nflow.set(\"JobOrderListNodeId\", JobOrderListNodeId)\n\nconst JobOrderResultsObjectNodeId = `ns=${instanceIndex};s=MyControledMachine-JobManager-JobOrderResults`\nflow.set(\"JobOrderResultsObjectNodeId\", JobOrderResultsObjectNodeId)\nconst JobOrderResultsMethodNodeId = `ns=${instanceIndex};s=MyControledMachine-JobManager-JobOrderResults-RequestJobResponseByJobOrderID`\nflow.set(\"JobOrderResultsMethodNodeId\", JobOrderResultsMethodNodeId)\n\nflow.set(\"Initialized\", true)\n\nreturn {}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1550,
+        "y": 140,
+        "wires": [
+            [
+                "077eff161bc3164b"
+            ]
+        ]
+    },
+    {
+        "id": "57f0698ac36b00c0",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "read JobOrderList",
+        "func": "msg.action = \"read\"\nmsg.topic = flow.get(\"JobOrderListNodeId\")\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 120,
+        "wires": [
+            [
+                "a365c9945934d1b0"
+            ]
+        ]
+    },
+    {
+        "id": "a1a5a4bd0ba61330",
+        "type": "link out",
+        "z": "f89f7b3bf2d4f082",
+        "name": "session active",
+        "mode": "link",
+        "links": [
+            "646fec55545ecb7a"
+        ],
+        "x": 1345,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "646fec55545ecb7a",
+        "type": "link in",
+        "z": "f89f7b3bf2d4f082",
+        "name": "link in 2",
+        "links": [
+            "a1a5a4bd0ba61330"
+        ],
+        "x": 75,
+        "y": 280,
+        "wires": [
+            [
+                "9e495d4bdcb4e25c"
+            ]
+        ]
+    },
+    {
+        "id": "077eff161bc3164b",
+        "type": "link out",
+        "z": "f89f7b3bf2d4f082",
+        "name": "Initialized",
+        "mode": "link",
+        "links": [
+            "4267f41d695d76ea"
+        ],
+        "x": 1685,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4267f41d695d76ea",
+        "type": "link in",
+        "z": "f89f7b3bf2d4f082",
+        "name": "link in 3",
+        "links": [
+            "077eff161bc3164b"
+        ],
+        "x": 75,
+        "y": 160,
+        "wires": [
+            [
+                "57f0698ac36b00c0",
+                "f38f70385ab5a911",
+                "72b1daca37a72d16"
+            ]
+        ]
+    },
+    {
+        "id": "42de712d20bbf1ed",
+        "type": "link out",
+        "z": "f89f7b3bf2d4f082",
+        "name": "refresh click",
+        "mode": "link",
+        "links": [
+            "99c7024932e6e4ec"
+        ],
+        "x": 1245,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "99c7024932e6e4ec",
+        "type": "link in",
+        "z": "f89f7b3bf2d4f082",
+        "name": "link in 4",
+        "links": [
+            "42de712d20bbf1ed"
+        ],
+        "x": 75,
+        "y": 120,
+        "wires": [
+            [
+                "57f0698ac36b00c0"
+            ]
+        ]
+    },
+    {
+        "id": "51f77aaaa41c85e2",
+        "type": "ui_button",
+        "z": "f89f7b3bf2d4f082",
+        "name": "",
+        "group": "79c78ae2116548f2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Store & Start a random Job",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 160,
+        "y": 860,
+        "wires": [
+            [
+                "87e9dd4e087473b9"
+            ]
+        ]
+    },
+    {
+        "id": "87e9dd4e087473b9",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "",
+        "func": "// Math.random() * (max - min) + min\n\nstartOffset = Math.random() * (10000 - 1000) + 1000\nduration = startOffset + Math.random() * (30000 - 15000) + 15000\n\nconst start = (new Date().getTime() + startOffset)\nconst end = (new Date().getTime() +  duration)\nmsg = {}\nmsg.topic = \"\"\nmsg.payload = {\n    ID: `Job_${new Date().getTime()}`,\n    Description: \"This is an autogenerated Job!\",\n    Priority: 0,\n    Comment: \"Testrun!\",\n    StartTime: start,\n    EndTime: end,\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 860,
+        "wires": [
+            [
+                "d12879973d769354"
+            ]
+        ]
+    },
+    {
+        "id": "ec4fcbbbefc20689",
+        "type": "ui_button",
+        "z": "f89f7b3bf2d4f082",
+        "name": "",
+        "group": "79c78ae2116548f2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Clear All Jobs",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 900,
+        "wires": [
+            [
+                "f12d839f20176440"
+            ]
+        ]
+    },
+    {
+        "id": "f12d839f20176440",
+        "type": "function",
+        "z": "f89f7b3bf2d4f082",
+        "name": "",
+        "func": "const jobOrderList = flow.get(\"JobOrderList\") || []\n\nreturn [jobOrderList.map((joborder) => {\n    msg = {}\n    msg.payload = {\n            ID: joborder.jobOrder.jobOrderID\n        }\n    return msg\n})]",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 900,
+        "wires": [
+            [
+                "c408f091e4ee1c01"
             ]
         ]
     }

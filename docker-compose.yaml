@@ -1,8 +1,8 @@
 services:
   opcua-server:
     image: ghcr.io/andreasheine/sampleserver-node-opcua:main
-    ports:
-      - 4840:4840
+    # ports:
+    #   - 4840:4840
   opcua-client:
     image: opcua-client
     build:
@@ -13,5 +13,5 @@ services:
     environment:
       - FLOWS=/shared/flows.json
     volumes:
-      - ./opcua-client/data:/data:rw
+      # - ./opcua-client/data:/data:rw
       - ./opcua-client/flow:/shared:rw
