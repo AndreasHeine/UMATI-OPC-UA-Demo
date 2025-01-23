@@ -4,8 +4,14 @@ services:
     ports:
       - 4840:4840
   opcua-client:
-    image: nodered/node-red
+    image: opcua-client
+    build:
+      context: opcua-client
+      dockerfile: ../opcua-client.Dockerfile
     ports:
       - 1880:1880
+    environment:
+      - FLOWS=/shared/flows.json
     volumes:
-      - ./opcua-client/:/data:rw
+      - ./opcua-client/data:/data:rw
+      - ./opcua-client/flow:/shared:rw
